@@ -1,0 +1,259 @@
+/* ===== Стили модалки профиля ===== */
+.dz-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+.dz-modal.hidden {
+    display: none;
+}
+
+.dz-modal-content {
+    position: relative;
+    background: linear-gradient(160deg, #1c1c1c, #2a2a2a);
+    border-radius: 20px;
+    padding: 50px 40px 40px;   /* больше внутренние отступы */
+    text-align: center;
+    width: 700px;              /* шире */
+    height: 600px;             /* фиксируем высоту больше */
+    color: #fff;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* чтобы аватар и кнопки центрировались */
+    align-items: center;
+}
+
+.dz-avatar-preview {
+    width: 365px;
+    height: 365px;
+    border-radius: 50%;
+    margin-bottom: 25px;
+    object-fit: cover;
+    border: 5px solid #ff6600;
+    box-shadow: 0 0 25px rgba(255,102,0,0.6);
+}
+
+.dz-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.dz-close-btn:hover {
+    color: #ff6600;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: center;       /* кнопки держим по центру */
+    gap: 35px;                     /* небольшой отступ между кнопками */
+    margin-top: 35px;
+}
+
+.profile-actions button {
+    flex: 0 0 200px;               /* кнопки чуть шире */
+    min-height: 60px;              /* нормальная высота */
+    padding: 0 28px;               /* просторнее внутри */
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.3rem;            /* текст остаётся крупным */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;                     /* расстояние иконка ↔ текст */
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+    box-shadow: 0 5px 12px rgba(0,0,0,.25),
+    0 0 12px rgba(255,102,0,.22);
+}
+
+/* Изменить */
+.profile-actions .btn-edit {
+    background: linear-gradient(45deg, #ff9900, #ff6600);
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.45); /* мягче */
+}
+.profile-actions .btn-edit:hover {
+    background: linear-gradient(45deg, #ffb733, #ff6600);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(255, 102, 0, 0.55); /* тоже мягче */
+}
+
+/* Удалить */
+.profile-actions .btn-delete {
+    background: linear-gradient(45deg, #ff5e3a, #ff1e00);
+    box-shadow: 0 4px 12px rgba(255, 30, 0, 0.45); /* мягче */
+}
+.profile-actions .btn-delete:hover {
+    background: linear-gradient(45deg, #ff7a5c, #e60000);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(255, 30, 0, 0.55); /* мягче */
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+.dz-modal-content.small {
+    width: 400px;
+    height: auto;
+    padding: 30px;
+}
+
+
+/* === Стили для confirm-модалки === */
+.dz-modal-content.confirm {
+    background: #fff;                  /* Белый фон */
+    color: #333;                       /* Тёмный текст */
+    border-radius: 10px;
+    padding: 20px 25px;
+    width: 350px;                      /* Узкое компактное окно */
+    height: auto;                      /* Подстраивается под текст */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    text-align: center;
+    animation: fadeIn 0.25s ease;
+}
+
+.dz-modal-content.confirm h5 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.dz-modal-content.confirm p {
+    margin: 0 0 20px;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* Кнопки внутри confirm */
+.dz-modal-content.confirm .btn {
+    min-width: 90px;
+    padding: 6px 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.dz-modal-content.confirm .btn-primary {
+    background: #007bff;
+    color: #fff;
+}
+.dz-modal-content.confirm .btn-primary:hover {
+    background: #0069d9;
+}
+
+.dz-modal-content.confirm .btn-secondary {
+    background: #e0e0e0;
+    color: #333;
+}
+.dz-modal-content.confirm .btn-secondary:hover {
+    background: #d5d5d5;
+}
+
+#storeInfoModal {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(0,0,0,0.6) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 2000 !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transition: opacity 0.25s ease !important;
+}
+
+#storeInfoModal.show {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+
+.store-modal-content {
+    background: #fff;
+    color: #222;
+    border-radius: 8px;
+    padding: 30px 40px;
+    width: 420px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    position: relative;
+    text-align: left;
+    animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+    from { transform: translateY(-15px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.store-modal-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+
+
+
+/* === МОДАЛКА ДОБАВЛЕНИЯ АВТО === */
+.dz-modal.vehicle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+}
+
+.dz-modal-content.vehicle {
+    background: #fff;
+    border-radius: 16px;
+    width: 700px;
+    max-width: 95%;
+    padding: 30px 40px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    color: #222;
+    animation: scaleIn 0.3s ease;
+}
+
+.dz-modal-content.vehicle .nav-tabs .nav-link {
+    border: none;
+    background: #eee;
+    color: #555;
+    border-radius: 6px;
+    margin-right: 8px;
+}
+.dz-modal-content.vehicle .nav-link.active {
+    background: var(--dz-orange);
+    color: #fff;
+}
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }

@@ -1,0 +1,34 @@
+/* === Стили только для страницы корзины === */
+
+/* --- Карточки товаров --- */
+.card {
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Кнопки --- */
+.btn-warning {
+    background-color: #ff8c00;
+    border-color: #ff8c00;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-warning:hover {
+    background-color: #ff9f1a;
+    border-color: #ff9f1a;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #f1f1f1;
+}
+
+body {
+    background-color: #f8f9fa;
+}
